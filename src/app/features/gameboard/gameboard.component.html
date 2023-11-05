@@ -1,0 +1,67 @@
+<mat-toolbar class="mb justify-content-center align-items-center" color="primary">
+  <span>Swapi game</span>
+</mat-toolbar>
+
+<ng-container *ngIf="isLoading$ | async">
+  <div class="col-12">
+    <div class="row g-3 w-100">
+      <mat-progress-bar mode="query"></mat-progress-bar>
+    </div>
+  </div>
+</ng-container>
+
+<div class="container mt-4">
+  <div class="row gy-4 mb-5">
+    <div class="col-12 col-lg-6">
+      <app-scoreboard [score]="score$ | async"></app-scoreboard>
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <div class="row">
+        <app-battle-switcher
+          [isLoading]="isLoading$ | async"
+          (battleSetupSelected)="onBattleSetupSelected($event)"
+          (scoreResetSelected)="onScoreResetSelected()"
+        ></app-battle-switcher>
+      </div>
+    </div>
+
+    <ng-container *ngIf="people$ | async as people">
+      <div class="col-12">
+        <div class="row g-3 g-md-0">
+          <div class="col-12 col-md-5">
+            <app-player-info [class]="playerOneClass" [person]="people[0]"></app-player-info>
+          </div>
+          <div class="col-12 col-md-2 d-flex justify-content-center align-items-center">
+            <h1 class="m-0">vs</h1>
+          </div>
+          <div class="col-12 col-md-5">
+            <app-player-info [class]="playerTwoClass" [person]="people[1]"></app-player-info>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="starships$ | async as starships">
+      <div class="col-12">
+        <div class="row g-3 g-md-0">
+          <div class="col-12 col-md-5">
+            <app-player-info [class]="playerOneClass" [starship]="starships[0]"></app-player-info>
+          </div>
+          <div class="col-12 col-md-2 d-flex justify-content-center align-items-center">
+            <h1 class="m-0">vs</h1>
+          </div>
+          <div class="col-12 col-md-5">
+            <app-player-info [class]="playerTwoClass" [starship]="starships[1]"></app-player-info>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+
+  <div style="height: 80px"></div>
+</div>
+
+<mat-toolbar class="fixed-bottom justify-content-center align-items-center" color="primary">
+  <span>Developed by Andriy Chaykun</span>
+</mat-toolbar>

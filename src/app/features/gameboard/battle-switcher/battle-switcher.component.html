@@ -1,0 +1,52 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+  <div class="row">
+    <div class="col-6">
+      <mat-form-field class="w-100" color="primary">
+        <mat-label>Select a resource</mat-label>
+        <mat-select formControlName="resource" [disabled]="isLoading!">
+          <mat-option *ngFor="let option of battleSetupOptions" [value]="option.value">{{ option.key }}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="resource.invalid">Resource is required.</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col-6">
+      <mat-form-field class="w-100" color="primary">
+        <mat-label>Select an attribute</mat-label>
+        <mat-select formControlName="attribute" [disabled]="isLoading!">
+          <mat-option *ngFor="let attribute of availableAttributes" [value]="attribute.value">
+            {{ attribute.key }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="attribute.invalid">Attribute is required.</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col-6 mt-2">
+      <button
+        type="button"
+        mat-raised-button
+        color="secondary"
+        class="w-100 shadow p-3 rounded"
+        style="height: 42px"
+        (click)="onScoreReset()"
+        [disabled]="isLoading!"
+      >
+        Reset score
+      </button>
+    </div>
+
+    <div class="col-6 mt-2">
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        class="w-100 shadow p-3 rounded"
+        style="height: 42px"
+        [disabled]="form.invalid || !attribute.value || !resource.value || isLoading!"
+      >
+        Start battle!
+      </button>
+    </div>
+  </div>
+</form>

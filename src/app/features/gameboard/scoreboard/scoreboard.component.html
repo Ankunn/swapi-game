@@ -1,0 +1,38 @@
+<mat-card class="shadow rounded">
+  <mat-card-header class="d-flex justify-content-center">
+    <h1 class="text-uppercase">Scoreboard</h1>
+  </mat-card-header>
+  <mat-card-content class="pb-0">
+    <div class="row gx-5 align-items-center justify-content-center text-center">
+      <div class="col-auto">
+        <h2
+          class="m-0 p-3 text-uppercase"
+          [matBadge]="score?.playerOneScore"
+          matBadgeSize="large"
+          matBadgePosition="after"
+          matBadgeColor="warn"
+          matBadgeOverlap="false"
+        >
+          Player 1
+        </h2>
+      </div>
+
+      <div class="col-auto">
+        <h1 class="m-0 text-secondary">:</h1>
+      </div>
+
+      <div class="col-auto">
+        <h2
+          class="m-0 p-3 text-uppercase"
+          [matBadge]="score?.playerTwoScore"
+          matBadgeSize="large"
+          matBadgePosition="before"
+          matBadgeColor="accent"
+          matBadgeOverlap="false"
+        >
+          Player 2
+        </h2>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

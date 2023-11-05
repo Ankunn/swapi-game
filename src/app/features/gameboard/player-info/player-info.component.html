@@ -1,0 +1,26 @@
+<mat-card *ngIf="person" class="shadow rounded">
+  <mat-card-header class="d-flex justify-content-center">
+    <mat-card-title>{{ person.name }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list class="list-group list-group-flush" role="list">
+      <mat-list-item *ngFor="let item of createPersonDetailList(person)" class="list-group-item">
+        {{ item.label }}: {{ item.value }}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="starship" class="shadow rounded">
+  <mat-card-header class="d-flex justify-content-center flex-column">
+    <mat-card-title class="d-flex justify-content-center">{{ starship.name }}</mat-card-title>
+    <mat-card-subtitle class="d-flex justify-content-center">{{ starship.model }} model</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list class="list-group list-group-flush" role="list">
+      <mat-list-item *ngFor="let item of createStarshipDetailList(starship)" class="list-group-item">
+        {{ item.label }}: {{ item.value }}
+      </mat-list-item>
+    </mat-list>
+  </mat-card-content>
+</mat-card>
