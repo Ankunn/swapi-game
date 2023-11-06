@@ -3,8 +3,8 @@
     <div class="col-6">
       <mat-form-field class="w-100" color="primary">
         <mat-label>Select a resource</mat-label>
-        <mat-select formControlName="resource" [disabled]="isLoading!">
-          <mat-option *ngFor="let option of battleSetupOptions" [value]="option.value">{{ option.key }}</mat-option>
+        <mat-select formControlName="resource" [disabled]="isLoading!" data-cy="resource-select">
+          <mat-option *ngFor="let option of battleSetupOptions" data-cy="resource-option" [value]="option.value">{{ option.key }}</mat-option>
         </mat-select>
         <mat-error *ngIf="resource.invalid">Resource is required.</mat-error>
       </mat-form-field>
@@ -13,8 +13,8 @@
     <div class="col-6">
       <mat-form-field class="w-100" color="primary">
         <mat-label>Select an attribute</mat-label>
-        <mat-select formControlName="attribute" [disabled]="isLoading!">
-          <mat-option *ngFor="let attribute of availableAttributes" [value]="attribute.value">
+        <mat-select formControlName="attribute" [disabled]="isLoading!" data-cy="attribute-select">
+          <mat-option *ngFor="let attribute of availableAttributes" data-cy="attribute-option" [value]="attribute.value">
             {{ attribute.key }}
           </mat-option>
         </mat-select>
@@ -24,6 +24,7 @@
 
     <div class="col-6 mt-2">
       <button
+        data-cy="reset"
         type="button"
         mat-raised-button
         color="secondary"
@@ -38,6 +39,7 @@
 
     <div class="col-6 mt-2">
       <button
+        data-cy="submit"
         type="submit"
         mat-raised-button
         color="primary"
