@@ -1,0 +1,98 @@
+import { PersonProperties, StarshipProperties, SwapiCommonResponse } from '../interfaces';
+
+export const MOCK_PEOPLE_DATA: PersonProperties[] = [
+  {
+    height: '96',
+    mass: 'unknown',
+    hair_color: 'none',
+    skin_color: 'silver, red',
+    eye_color: 'red, blue',
+    birth_year: 'unknown',
+    gender: 'female',
+    created: '2023-11-04T20:46:10.054Z',
+    edited: '2023-11-04T20:46:10.054Z',
+    name: 'R4-P17',
+    homeworld: 'https://www.swapi.tech/api/planets/28',
+    url: 'https://www.swapi.tech/api/people/75',
+  },
+  {
+    height: '178',
+    mass: '57',
+    hair_color: 'none',
+    skin_color: 'red, blue, white',
+    eye_color: 'black',
+    birth_year: 'unknown',
+    gender: 'female',
+    created: '2023-11-04T20:46:10.054Z',
+    edited: '2023-11-04T20:46:10.054Z',
+    name: 'Shaak Ti',
+    homeworld: 'https://www.swapi.tech/api/planets/58',
+    url: 'https://www.swapi.tech/api/people/78',
+  },
+];
+
+export const MOCK_STARSHIP_DATA: StarshipProperties[] = [
+  {
+    model: 'Delta-7 Aethersprite-class interceptor',
+    starship_class: 'Starfighter',
+    manufacturer: 'Kuat Systems Engineering',
+    cost_in_credits: '180000',
+    length: '8',
+    crew: '1',
+    passengers: '0',
+    max_atmosphering_speed: '1150',
+    hyperdrive_rating: '1.0',
+    MGLT: 'unknown',
+    cargo_capacity: '60',
+    consumables: '7 days',
+    pilots: ['https://www.swapi.tech/api/people/10', 'https://www.swapi.tech/api/people/58'],
+    created: '2020-09-17T17:55:06.604Z',
+    edited: '2020-09-17T17:55:06.604Z',
+    name: 'Jedi starfighter',
+    url: 'https://www.swapi.tech/api/starships/48',
+  },
+  {
+    model: 'Theta-class T-2c shuttle',
+    starship_class: 'transport',
+    manufacturer: 'Cygnus Spaceworks',
+    cost_in_credits: '1000000',
+    length: '18.5',
+    crew: '5',
+    passengers: '16',
+    max_atmosphering_speed: '2000',
+    hyperdrive_rating: '1.0',
+    MGLT: 'unknown',
+    cargo_capacity: '50000',
+    consumables: '56 days',
+    pilots: [],
+    created: '2020-09-17T17:55:06.604Z',
+    edited: '2020-09-17T17:55:06.604Z',
+    name: 'Theta-class T-2c shuttle',
+    url: 'https://www.swapi.tech/api/starships/61',
+  },
+];
+
+export const MOCK_SWAPI_COMMON_RESPONSE: SwapiCommonResponse = {
+  message: 'ok',
+  total_records: 82,
+  total_pages: 1,
+  previous: null,
+  next: null,
+  results: [
+    {
+      uid: '1',
+      name: 'Luke Skywalker',
+      url: 'https://www.swapi.tech/api/people/1',
+    },
+    {
+      uid: '2',
+      name: 'C-3PO',
+      url: 'https://www.swapi.tech/api/people/2',
+    },
+    {
+      uid: '3',
+      name: 'R2-D2',
+      url: 'https://www.swapi.tech/api/people/3',
+    },
+  ],
+};

@@ -12,6 +12,7 @@ const personLabels: Labels = {
 };
 
 const starshipLabels: Labels = {
+  model: 'Model',
   starship_class: 'Class',
   manufacturer: 'Manufacturer',
   cost_in_credits: 'Cost in Credits',

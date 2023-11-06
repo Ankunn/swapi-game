@@ -2,7 +2,7 @@
   <span>Swapi game</span>
 </mat-toolbar>
 
-<ng-container *ngIf="isLoading$ | async">
+<ng-container *ngIf="isLoading$ | async; else loaderEmptySpace">
   <div class="col-12">
     <div class="row g-3 w-100">
       <mat-progress-bar mode="query"></mat-progress-bar>
@@ -65,3 +65,7 @@
 <mat-toolbar class="fixed-bottom justify-content-center align-items-center" color="primary">
   <span>Developed by Andriy Chaykun</span>
 </mat-toolbar>
+
+<ng-template #loaderEmptySpace>
+  <div *ngIf="(isLoading$ | async) === false" style="height: 4px"></div>
+</ng-template>

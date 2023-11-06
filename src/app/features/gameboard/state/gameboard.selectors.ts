@@ -17,4 +17,19 @@ export class GameboardSelectors {
   static getScore(state: GameboardStateModel): Score {
     return state.score;
   }
+
+  @Selector([GameboardState])
+  static getCommonData(state: GameboardStateModel): typeof state.commonData {
+    return state.commonData;
+  }
+
+  @Selector([GameboardState])
+  static peopleData(state: GameboardStateModel) {
+    return state.commonData.people;
+  }
+
+  @Selector([GameboardState])
+  static starshipsData(state: GameboardStateModel) {
+    return state.commonData.starships;
+  }
 }

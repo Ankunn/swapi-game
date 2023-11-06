@@ -46,6 +46,7 @@ export class ScoreService {
 
   resetScore(): void {
     this.scoreSubject.next(initialScore);
+    this.lastWinnerSubject.next(null);
   }
 
   private setLastWinner(scoreType: ScoreType): void {

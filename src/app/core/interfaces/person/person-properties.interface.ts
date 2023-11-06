@@ -6,8 +6,8 @@ export interface PersonProperties {
   eye_color: string;
   birth_year: string;
   gender: string;
-  created: Date;
-  edited: Date;
+  created: string;
+  edited: string;
   name: string;
   homeworld: string;
   url: string;

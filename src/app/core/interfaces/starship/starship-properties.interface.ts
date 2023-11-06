@@ -12,8 +12,8 @@ export interface StarshipProperties {
   cargo_capacity: string;
   consumables: string;
   pilots: any[];
-  created: Date;
-  edited: Date;
+  created: string;
+  edited: string;
   name: string;
   url: string;
 }

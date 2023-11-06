@@ -34,7 +34,7 @@ export class SwapiService {
     );
   }
 
-  private fetchCommonData(resource: ResourceType): Observable<SwapiCommonResponse> {
+  fetchCommonData(resource: ResourceType): Observable<SwapiCommonResponse> {
     this.isLoading.next(true);
 
     const url = `${this.API_URL}${resource}?page=1&limit=100`;
@@ -48,19 +48,19 @@ export class SwapiService {
     return this.cachedCommonResponse.get(url)!;
   }
 
-  private fetchDetails<T>(urls: string[]): Observable<T[]> {
-    return forkJoin(
-      urls.map(url =>
-        this.http.get<{ result: { properties: T } }>(url).pipe(map(response => response.result.properties))
-      )
-    ).pipe(map(details => details.filter(detail => detail !== null)));
-  }
-
   private getTwoRandomPlayers(response: SwapiCommonResponse): string[] {
     const availableNumbers = response.results.length;
     const randomNumbers = [Math.floor(Math.random() * availableNumbers), Math.floor(Math.random() * availableNumbers)];
     const players = [response.results[randomNumbers[0]].url, response.results[randomNumbers[1]].url];
 
     return players;
+  }
+
+  private fetchDetails<T>(urls: string[]): Observable<T[]> {
+    return forkJoin(
+      urls.map(url =>
+        this.http.get<{ result: { properties: T } }>(url).pipe(map(response => response.result.properties))
+      )
+    ).pipe(map(details => details.filter(detail => detail !== null)));
   }
 }
