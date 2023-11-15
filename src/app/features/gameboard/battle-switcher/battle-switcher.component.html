@@ -4,7 +4,9 @@
       <mat-form-field class="w-100" color="primary">
         <mat-label>Select a resource</mat-label>
         <mat-select formControlName="resource" [disabled]="isLoading!" data-cy="resource-select">
-          <mat-option *ngFor="let option of battleSetupOptions" data-cy="resource-option" [value]="option.value">{{ option.key }}</mat-option>
+          <mat-option *ngFor="let option of battleSetupOptions" data-cy="resource-option" [value]="option.value">
+            {{ option.key }}
+          </mat-option>
         </mat-select>
         <mat-error *ngIf="resource.invalid">Resource is required.</mat-error>
       </mat-form-field>
@@ -14,7 +16,11 @@
       <mat-form-field class="w-100" color="primary">
         <mat-label>Select an attribute</mat-label>
         <mat-select formControlName="attribute" [disabled]="isLoading!" data-cy="attribute-select">
-          <mat-option *ngFor="let attribute of availableAttributes" data-cy="attribute-option" [value]="attribute.value">
+          <mat-option
+            *ngFor="let attribute of availableAttributes"
+            data-cy="attribute-option"
+            [value]="attribute.value"
+          >
             {{ attribute.key }}
           </mat-option>
         </mat-select>

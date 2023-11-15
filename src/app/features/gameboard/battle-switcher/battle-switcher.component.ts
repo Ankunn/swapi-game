@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Subject, takeUntil } from 'rxjs';
 import { BattleSetup, CommonAttributeType, Labels, ResourceType } from 'src/app/core';
@@ -50,6 +50,7 @@ const ATTRIBUTE_LABELS: Labels = {
   selector: 'app-battle-switcher',
   templateUrl: './battle-switcher.component.html',
   styleUrls: ['./battle-switcher.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BattleSwitcherComponent implements OnDestroy {
   private destroy$ = new Subject<void>();

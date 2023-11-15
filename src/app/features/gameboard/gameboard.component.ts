@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy } from '@angular/core';
 import { Observable, Subject, takeUntil, tap } from 'rxjs';
 import {
   BattleSetup,
@@ -16,6 +16,7 @@ import {
   selector: 'app-gameboard',
   templateUrl: './gameboard.component.html',
   styleUrls: ['./gameboard.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GameboardComponent implements OnDestroy {
   private destroy$ = new Subject<void>();

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Labels, PersonProperties, StarshipProperties } from 'src/app/core';
 
 const personLabels: Labels = {
@@ -30,6 +30,7 @@ const starshipLabels: Labels = {
   selector: 'app-player-info',
   templateUrl: './player-info.component.html',
   styleUrls: ['./player-info.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PlayerInfoComponent {
   @Input() person?: PersonProperties | null;
